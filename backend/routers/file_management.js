@@ -16,6 +16,7 @@ const s3 = new AWS.S3();
 
 // upload a file
 router.post('/upload', auth, async (req, res, next) => {
+    console.log(req.files)
     var uploaded_list = req.body.allFile
     console.log(uploaded_list)
     let uploaded_file_list;
