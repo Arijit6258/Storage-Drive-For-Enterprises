@@ -49,7 +49,7 @@ router.post('/upload', auth, async (req, res, next) => {
 
         const model_obj = new file_model(file_obj);
 
-        await model_obj.save((err, obj) => {
+        model_obj.save((err, obj) => {
             if (err) console.log(err);
             console.log(obj);
         });
