@@ -152,7 +152,9 @@ router.get('/files', auth, async (req, res) => {
 // view files
 router.get('/trash', auth, async (req, res) => {
     await file_model.find({ "owner": req.user._id, "isTrash": true }, (ERR, file_list) => {
-        res.send(file_list);
+        if (ERR) res.status(400).send("server crashed !!")
+        console.log(typeof(file_list));
+        res.status(200).send(file_list);
     });
 });
 
